@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class SudokuSolver {
@@ -36,12 +37,16 @@ public class SudokuSolver {
         }
 
         // create the list of sets for each row (this.rows)
-        ArrayList<int> setList = new ArrayList<>();
-
-
+        // ...
+        this.rows = new ArrayList<Set<Integer>>();
+        for(int[]row: this.grid){
+            this.rows.add(new HashSet<Integer>());
+            for(int i: row)
+                this.rows.get(this.rows.size()-1).add(i);
+        }
         // create the list of sets for each col (this.cols)
         // ...
-
+        this.cols = new ArrayList<Set<Integer>>();
         // create the list of sets for each square (this.squares)
         /* the squares are added to the list row-by-row:
             0 1 2
@@ -49,10 +54,13 @@ public class SudokuSolver {
             6 7 8
          */
         // ...
-
+        this.squares = new ArrayList<>();
         // create a hash set for [1..9] (this.nums)
         // ...
-
+        this.nums = new HashSet();
+        for(int i = 1; i<=9;i++){
+            this.nums.add(i);
+        }
         // visually inspect that all the sets are correct
         for (int row = 0; row < N; row++) {
             System.out.println("row " + row + ": " + this.rows.get(row));
@@ -142,7 +150,7 @@ public class SudokuSolver {
     }
 
     public static void main(String[] args) {
-        String fileName = "src/puzzle1.txt";
+        String fileName = "src/Chapter 15 Activites/puzzle1.txt";
 
         SudokuSolver solver = new SudokuSolver(fileName);
         System.out.println(solver);
