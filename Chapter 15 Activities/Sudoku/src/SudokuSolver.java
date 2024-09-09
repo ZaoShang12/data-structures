@@ -41,12 +41,17 @@ public class SudokuSolver {
         this.rows = new ArrayList<Set<Integer>>();
         for(int[]row: this.grid){
             this.rows.add(new HashSet<Integer>());
-            for(int i: row)
-                this.rows.get(this.rows.size()-1).add(i);
+            for(int num: row)
+                this.rows.get(this.rows.size()-1).add(num);
         }
         // create the list of sets for each col (this.cols)
         // ...
         this.cols = new ArrayList<Set<Integer>>();
+        for(int[]col: this.grid){
+            this.cols.add(new HashSet<Integer>());
+            for(int num: col)
+                this.cols.get(this.cols.size()-1).add(num);
+        }
         // create the list of sets for each square (this.squares)
         /* the squares are added to the list row-by-row:
             0 1 2
@@ -54,12 +59,17 @@ public class SudokuSolver {
             6 7 8
          */
         // ...
-        this.squares = new ArrayList<>();
+        this.squares = new ArrayList<Set<Integer>>();
+        for(int[]square: this.grid){
+            this.squares.add(new HashSet<Integer>());
+            for(int num: square)
+                this.squares.get(this.squares.size()-1).add(num);
+        }
         // create a hash set for [1..9] (this.nums)
         // ...
-        this.nums = new HashSet();
-        for(int i = 1; i<=9;i++){
-            this.nums.add(i);
+        this.nums = new HashSet<Integer>();
+        for(int j = 1; j<=9;j++){
+            this.nums.add(j);
         }
         // visually inspect that all the sets are correct
         for (int row = 0; row < N; row++) {
@@ -103,6 +113,7 @@ public class SudokuSolver {
             Properly indexing the squares list of sets is tricky. Verify that your
             algorithm is correct.
          */
+        
         Set<Integer> possibleNums = new HashSet<Integer>();
         possibleNums.addAll(this.nums);
         
@@ -150,7 +161,7 @@ public class SudokuSolver {
     }
 
     public static void main(String[] args) {
-        String fileName = "src/Chapter 15 Activites/puzzle1.txt";
+        String fileName = "Chapter 15 Activities/Sudoku/src/puzzle1.txt";
 
         SudokuSolver solver = new SudokuSolver(fileName);
         System.out.println(solver);
