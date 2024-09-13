@@ -12,13 +12,13 @@ public class StringLengthMap
 {
     public static void main(String[] args) throws FileNotFoundException
     {
-        String filename = "src/test1.txt";
+        String filename = "Chapter 15 Activities/StringLengthMap/src/test1.txt";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
 
             // Create your map here
-            
+            Map<Integer, String> map1 = new HashMap<>();
 
             while (in.hasNext())
             {
@@ -26,14 +26,36 @@ public class StringLengthMap
                 Integer len = word.length();
 
                 // Update the map here
+                if(map1.get(len) == null){
+                    map1.put(len, word);
+                }
+                else{
+                    String n = map1.get(len) + ", " + word;
+                map1.put(len, n);
+                }
+                
                 // Modify Worked Example 15.1
                 
-
+                
 
             }
+            ArrayList<Integer> l = new ArrayList();
+                Set<Integer> s = map1.keySet();
+                
+                 
+                for(int i: s){
+                    l.add(i);
+                }
+
+                Collections.sort(l);
+                
+               
 
             // Print the strings, in increasing order of their length
             // Use this format: 1: i, a, i
+            for(int i: l){
+                System.out.println( i + ": " + map1.get(i));
+            }
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
