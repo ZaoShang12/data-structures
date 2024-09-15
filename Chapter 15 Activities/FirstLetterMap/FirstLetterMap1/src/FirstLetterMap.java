@@ -12,7 +12,7 @@ public class FirstLetterMap
 {
     public static void main(String[] args)
     {
-        String filename = "src/test1.txt";
+        String filename = "Chapter 15 Activities/FirstLetterMap/FirstLetterMap2/src/test1.txt";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
@@ -27,7 +27,9 @@ public class FirstLetterMap
 
                 // Update the map here
                 // Use the Java 8 merge method
-                map.merge(c, word, (oldValue, notPresentValue) -> {oldValue.addAll(notPresentValue); return oldValue;});
+                Set<String> p = new HashSet<>();
+                p.add(word);
+                map.merge(c, p, (oldValue, notPresentValue) -> {oldValue.addAll(notPresentValue); return oldValue;});
             }
             ArrayList<Character> l = new ArrayList<>();
             Set<Character> s = map.keySet();
