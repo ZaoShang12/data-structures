@@ -12,13 +12,13 @@ public class FirstLetterMap
 {
     public static void main(String[] args)
     {
-        String filename = "src/test1.txt";
+        String filename = "Chapter 15 Activities/FirstLetterMap/FirstLetterMap2/src/test1.txt";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
 
             // Create your map here
-            ...
+            Map<Character, Set> map = new HashMap<>();
 
             while (in.hasNext())
             {
@@ -27,14 +27,34 @@ public class FirstLetterMap
 
                 // Update the map here
                 // Modify Worked Example 15.1
-                . . .
+                if(map.get(c) == null){
+                    Set<String> tempSet = new HashSet<>();
+                    tempSet.add(word);
+                    map.put(c, tempSet);
+                }
+                else{
+                    Set<String> tempSet = map.get(c);
+                    tempSet.add(word);
+                map.put(c, tempSet);
+                }
 
 
             }
+            
+            ArrayList<Character> l = new ArrayList<>();
+            Set<Character> s = map.keySet();
+                
+                 
+                for(char i: s){
+                    l.add(i);
+                }
 
+                Collections.sort(l);
             // Print the map here in this form
             // a: [a, able, aardvark]
-            . . .
+            for(Character i: l){
+                System.out.println( i + ": " + map.get(i));
+            }
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);

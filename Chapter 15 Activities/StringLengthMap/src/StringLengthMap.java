@@ -39,7 +39,7 @@ public class StringLengthMap
                 
 
             }
-            ArrayList<Integer> l = new ArrayList();
+            ArrayList<Integer> l = new ArrayList<>();
                 Set<Integer> s = map1.keySet();
                 
                  
