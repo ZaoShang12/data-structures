@@ -9,5 +9,22 @@ public class QueueDemo
 {
     public static void main(String[] args)
     {
+        // create a print queue of strings using a linked list
+        Queue<String> jobs = new LinkedList<>();
+        jobs.add("Joe: Quarter 2 Expense Report");
+        jobs.add("Cathy: Top Secret Deocument");
+        System.out.println("Printing: " + jobs.remove());
+
+        // add some more jobs
+        jobs.add("Cathy: Really top seceret document");
+        jobs.add("Joe: Grocery List");
+        jobs.add("Cathy: can I get fired for this?");
+        System.out.println("Printing: " + jobs.remove());
+        jobs.add("Boss: cathy termination Letter");
+
+        // print rest of the jobs in the queue
+        while(jobs.size() > 0){
+            System.out.println("Printing: " + jobs.remove());
+        }
     }
 }
