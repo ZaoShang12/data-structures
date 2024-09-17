@@ -30,8 +30,12 @@ public class StringLengthMap
                     map1.put(len, word);
                 }
                 else{
-                    String n = map1.get(len) + ", " + word;
-                map1.put(len, n);
+                    if(!map1.get(len).contains(word)){
+                        String n = map1.get(len) + ", " + word;
+                        map1.put(len, n);
+                    }
+                    
+                
                 }
                 
                 // Modify Worked Example 15.1
