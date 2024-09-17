@@ -18,7 +18,7 @@ public class StringLengthMap2
         {
 
             // Create your map here
-            Map<Integer, String> map1 = new HashMap<>();
+            Map<Integer, Set<String>> map1 = new HashMap<>();
 
             while (in.hasNext())
             {
@@ -27,7 +27,10 @@ public class StringLengthMap2
 
                 // Update the map here
                 // Use the Java 8 merge() method
-                map1.merge(len, word, (oldValue, notPresentValue) -> oldValue + ", " + notPresentValue );
+                Set<String> p = new HashSet<>();
+                p.add(word);
+                map1.merge(len, p, (oldValue, notPresentValue) -> {oldValue.addAll(notPresentValue); return oldValue;});
+                
 
 
             }
