@@ -37,11 +37,13 @@ public class StringLengthMap2
 
             ArrayList<Integer> l = new ArrayList<>();
                 Set<Integer> s = map1.keySet();
+                String temp = "";
                 
                  
                 for(int i: s){
                     l.add(i);
                 }
+                
 
                 Collections.sort(l);
             // Print the strings, in increasing order of their length
