@@ -49,8 +49,14 @@ public class StringLengthMap2
             // Print the strings, in increasing order of their length
             // Use this format: 1: i, a, i
             for(int i: l){
-                System.out.println( i + ": " + map1.get(i));
+                
+                for(String st:map1.get(i) ){
+                    temp = temp + st +", ";
+                }
+                System.out.println( i + ": " + temp);
+                temp = "";
             }
+
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
