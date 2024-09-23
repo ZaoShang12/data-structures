@@ -18,8 +18,8 @@ public class Grid
            
             if(within(r, c) && pixels[r][c] == 0){
                
-                pixels[r][c] = count;
-                count++;
+                pixels[r][c] = count++;
+                
                 genCoord(r, c);
             }
            
@@ -33,12 +33,13 @@ public class Grid
         return false;
     }
     private void genCoord(int row, int col){
+        if (within(row, col - 1) && pixels[row][col - 1] == 0) q.push(new Pair(row, col - 1)); // Left (West)
+        if (within(row - 1, col) && pixels[row - 1][col] == 0) q.push(new Pair(row - 1, col)); // Up (North)
+        if (within(row + 1, col) && pixels[row + 1][col] == 0) q.push(new Pair(row + 1, col)); // Down (South)
+        if (within(row, col + 1) && pixels[row][col + 1] == 0) q.push(new Pair(row, col + 1)); // Right (East)
         
-       
-        if (within(row - 1, col) && pixels[row - 1][col] == 0) q.push(new Pair(row - 1, col)); // North
-        if (within(row + 1, col) && pixels[row + 1][col] == 0) q.push(new Pair(row + 1, col)); // South
-        if (within(row, col + 1) && pixels[row][col + 1] == 0) q.push(new Pair(row, col + 1)); // East
-        if (within(row, col - 1) && pixels[row][col - 1] == 0) q.push(new Pair(row, col - 1)); // West
+      
+        
     }
     
     public String toString()
