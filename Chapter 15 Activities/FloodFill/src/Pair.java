@@ -14,7 +14,7 @@ public class Pair
         return row;
     }
 
-    public int getColumn()
+    public int getCol()
     {
         return col;
     }
