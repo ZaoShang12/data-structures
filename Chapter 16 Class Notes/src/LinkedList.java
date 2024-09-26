@@ -8,12 +8,20 @@ import java.util.NoSuchElementException;
 */
 public class LinkedList
 {
-
-
+    private Node first; // first node. Null reference if list is empty
+    static class Node{
+        //node does not need access to anything in linked list
+        public Node next;
+        public Object data;
+    }
+    
     /**
         Constructs an empty linked list.
     */
+    public LinkedList() {
+       this.first = null;
 
+    }
 
 
 
@@ -21,7 +29,12 @@ public class LinkedList
         Returns the first element in the linked list.
         @return the first element in the linked list
     */
-
+    public Object getFirst(){
+        if(this.first == null){
+            throw new NoSuchElementException();
+        }
+        return this.first.data;
+    }
 
 
 
@@ -29,7 +42,13 @@ public class LinkedList
         Removes the first element in the linked list.
         @return the removed element
     */
-
+    public Object removeFirst(){
+        if(this.first == null){
+            throw new NoSuchElementException();
+        }
+        Object e = this.first.data;
+        this.first = this.first.next;
+        return e;}
 
 
 
@@ -38,7 +57,13 @@ public class LinkedList
         Adds an element to the front of the linked list.
         @param element the element to add
     */
-
+        public void addFirst(Object o){
+            Node newNode = new Node();
+            newNode.data = o;
+            newNode.next = this.first;
+            this.first = newNode;
+            
+        }
 
 
 
@@ -47,7 +72,9 @@ public class LinkedList
         Returns an iterator for iterating through this list.
         @return an iterator for iterating through this list
     */
-
+        public ListIterator listIterator(){
+            return new LinkedListIterator();
+        }
 
 
 
@@ -55,10 +82,10 @@ public class LinkedList
     //Class Node
 
 
-    class LinkedListIterator //implements ListIterator
+    class LinkedListIterator implements ListIterator
     {
       //private data
-
+        
 
         /**
             Constructs an iterator that points to the front
