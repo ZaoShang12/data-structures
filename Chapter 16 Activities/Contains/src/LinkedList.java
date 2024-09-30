@@ -40,8 +40,11 @@ public class LinkedList
         @return If the object exists in the list.
     */
     public boolean contains(Object obj)
-    {
-        if(first.data.equals(obj)){
+    {   
+        if(first == null){
+            return false;
+        }
+        else if(first.data.equals(obj)){
             return true;
         }
         else{

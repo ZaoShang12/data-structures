@@ -34,15 +34,7 @@ public class LinkedList
         return currentSize;
     }
 
-    /**
-        Checks if this linked list contains the given object.
-        @param obj The object to be checked for.
-        @return If the object exists in the list.
-    */
-    public boolean contains(Object obj)
-    {
-        // ...
-    }
+    
 
     /**
         Checks if the given node or any in its following nodes contains the given object.
@@ -51,12 +43,15 @@ public class LinkedList
     */
     public static boolean contains(Node start, Object obj)
     {
-        if(start.data.equals(obj)){
+        if(start == null){
+            return false;
+        }
+        else if(start.data.equals(obj)){
             return true;
         }
         else{
-            contains(start.next, obj);
-            return false;
+            
+            return contains(start.next, obj);
         }
     }
 

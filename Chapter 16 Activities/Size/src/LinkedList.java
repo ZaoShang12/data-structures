@@ -25,10 +25,19 @@ public class LinkedList
     public int size()
     {
         int total = 0;
-        if(first == null){
-            return 0;
+        if(first.data == null){
+            return total;
         }
-        while()
+        else{
+            total++;
+            Node n = first.next;
+        while(n != null){
+            total++;
+            n = n.next;
+        }
+        return total;
+        }
+        
     }
 
     /**
