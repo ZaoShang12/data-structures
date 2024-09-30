@@ -41,8 +41,22 @@ public class LinkedList
     */
     public boolean contains(Object obj)
     {
-        // ...
+        if(first.data.equals(obj)){
+            return true;
+        }
+        else{
+            
+            Node n = first.next;
+            while(n!= null){
+                if(n.data.equals(obj)){
+                    return true;
+                }
+                n = n.next;
+            }
+        }
+        return false;
     }
+  
 
     /**
         Returns the first element in the linked list.

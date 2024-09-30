@@ -51,7 +51,13 @@ public class LinkedList
     */
     public static boolean contains(Node start, Object obj)
     {
-        // ...
+        if(start.data.equals(obj)){
+            return true;
+        }
+        else{
+            contains(start.next, obj);
+            return false;
+        }
     }
 
     /**
