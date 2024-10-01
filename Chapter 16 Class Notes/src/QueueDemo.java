@@ -9,11 +9,23 @@ public class QueueDemo
         queue.add("Diana");
         queue.add("Harry");
         System.out.println(queue.remove()); // remove Tom
-        queue.add("Romeo");
-        System.out.println(queue.remove()); // remove Diana
-        queue.add("Juliet");
-        queue.add("Maria");
-
+        queue.add/[p.lo,i0uy7t66yuiop[]
+        \+k  \
+        \
+        
+        
+        
+        
+        
+        
+        
+         kmkk
+         
+         llk
+         
+         =-[
+         
+[;l;\k]]
         while(!queue.empty())
         {
             System.out.println(queue.remove());
