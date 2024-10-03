@@ -67,7 +67,7 @@ public class CircularArrayQueue
         this.currentSize--;
         Object element = this.elements[this.head];
         this.head = (this.head +1) % this.elements.length;
-        return element;
+        return element;   
     }
 
 
