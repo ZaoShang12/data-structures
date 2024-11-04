@@ -56,4 +56,25 @@ public class Tree
     }
 
     // Additional methods will be added in later sections.
+    public interface visitor{
+        /*
+         * The vist method is called for each visted Node
+         */
+
+         void visit(Object data);
+
+    }
+    public void preOrder(visitor v){
+        Tree.preOrder(this.root, v);
+    }
+    private static void preOrder(Node n, visitor v){
+        if(n == null) {
+            return;
+        }
+        v.visit(n.data);
+        for(Node child: n.children){
+            Tree.preOrder(child, v);
+        }
+    }
 }
+
